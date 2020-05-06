@@ -1,4 +1,4 @@
-export CONFIG_VERSION=5
+export CONFIG_VERSION=6
 export CONFIG_NAME=clin-external-proxy-v${CONFIG_VERSION}
 if [ "$1" = "dev" ]; then
     CONFIG_EXISTS=$(docker config ls | grep $CONFIG_NAME)
