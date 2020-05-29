@@ -14,20 +14,26 @@ Make sure your certificates are stored in Docker secrets:
 
 https://github.com/cr-ste-justine/devops/tree/dev/certificates
 
-To run it in production, type:
+To build the image locally, type:
+
+```
+./build.sh
+```
+
+To run:
 
 ```
 ./launch.sh
 ```
 
-To run it for development, type:
+To stop it, run:
 
 ```
-./launch.sh dev
+./teardown.sh
 ```
 
 ## Gitflow
 
-Whenever you are about to merge to master, make sure you increment the image version in the **push_image.sh** script.
+Whenever you are about to merge to master, make sure you increment the image version in the **VERSION** file.
 
 Once you merge to master, a pipeline will push the image.
