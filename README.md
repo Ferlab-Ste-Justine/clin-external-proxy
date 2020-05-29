@@ -6,11 +6,13 @@ This repo is for the external internet-facing proxy for clin.
 
 ## Configuration files
 
-The **external-proxy.conf** file is the production configuration. It is orchestrated in **docker-compose.yml**.
-
-The **external-proxy-local.conf** file is the local dev configuration (without certificates). It is orchestrated in **docker-compose-dev.yml**.
+The **external-proxy.conf** file is the nginx configuration. It is orchestrated in **docker-compose.yml**.
 
 ## Running It
+
+Make sure your certificates are stored in Docker secrets:
+
+https://github.com/cr-ste-justine/devops/tree/dev/certificates
 
 To run it in production, type:
 
@@ -24,10 +26,8 @@ To run it for development, type:
 ./launch.sh dev
 ```
 
-## Push Images
+## Gitflow
 
-To create a new image for production:
+Whenever you are about to merge to master, make sure you increment the image version in the **push_image.sh** script.
 
-- Update the image version in the **push-image.sh** script
-- Update the orchestration with the new image version in the **docker-compose.yml** orchestration
-- Run the **push-image.sh** script
+Once you merge to master, a pipeline will push the image.
