@@ -2,11 +2,7 @@ version: '3.5'
 services:
 
   nginx:
-    image: chusj/clin-external-reverse-proxy:1
-    volumes:
-      #     - ./data/certbot/conf:/etc/letsencrypt  --for local usage
-      #      - /home/ubuntu/data/certbot/conf:/etc/letsencrypt
-      - "sshvolume:/etc/letsencrypt"
+    image: chusj/clin-external-reverse-proxy:1.0.0
     ports:
       - 443:443
       - 10000:10000
@@ -17,12 +13,17 @@ services:
         constraints: [node.labels.node_role == devops]
     networks:
       - proxy
+    secrets:
+      - certificate_certificate
+      - certificate_key
     command: bin/bash -c "nginx -g 'daemon off;'"
 
 networks:
   proxy:
     external: true
 
-volumes:
-  sshvolume:
+secrets:
+  certificate_certificate:
+    external: true
+  certificate_key:
     external: true
