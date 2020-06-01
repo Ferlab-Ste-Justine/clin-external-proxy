@@ -14,4 +14,4 @@ jobs:
     - name: Log into registry
       run: echo "${{ secrets.DOCKER_HUB_TOKEN }}" | docker login -u chusj --password-stdin
     - name: Publish the image
-      run: ./push_image.sh
+      run: ./push-image.sh
