@@ -24,7 +24,7 @@ To build the image locally, type:
 ./build.sh
 ```
 
-To run:
+To launch it, run:
 
 ```
 ./launch.sh
