@@ -1,3 +1,7 @@
+![](https://github.com/cr-ste-justine/clin-external-proxy/workflows/Build/badge.svg)
+![](https://github.com/cr-ste-justine/clin-external-proxy/workflows/Publish/badge.svg)
+
+
 # About
 
 This repo is for the external internet-facing proxy for clin.
