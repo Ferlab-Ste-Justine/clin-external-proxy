@@ -17,17 +17,8 @@ server {
     }
 
     # Directives for clin-proxy-api
-    location ^~ /api/auth {
-        proxy_pass https://auth:3000/auth;
-        proxy_http_version 1.1;
-        proxy_set_header Connection keep-alive;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_cache_bypass $http_upgrade;
-    }
     location ^~ /api/patient {
-        proxy_pass https://patient:4000/patient;
+        proxy_pass http://patient:4000/patient;
         proxy_http_version 1.1;
         proxy_set_header Connection keep-alive;
         proxy_set_header Upgrade $http_upgrade;
@@ -36,7 +27,7 @@ server {
         proxy_cache_bypass $http_upgrade;
     }
     location ^~ /api/variant {
-        proxy_pass https://variant:5001/variant;
+        proxy_pass http://variant:5001/variant;
         proxy_http_version 1.1;
         proxy_set_header Connection keep-alive;
         proxy_set_header Upgrade $http_upgrade;
@@ -45,7 +36,7 @@ server {
         proxy_cache_bypass $http_upgrade;
     }
     location ^~ /api/meta {
-        proxy_pass https://meta:7000/meta;
+        proxy_pass http://meta:7000/meta;
         proxy_http_version 1.1;
         proxy_set_header Connection keep-alive;
         proxy_set_header Upgrade $http_upgrade;
@@ -54,7 +45,7 @@ server {
         proxy_cache_bypass $http_upgrade;
     }
     location ^~ /api/gene {
-        proxy_pass https://gene:5002/gene;
+        proxy_pass http://gene:5002/gene;
         proxy_http_version 1.1;
         proxy_set_header Connection keep-alive;
         proxy_set_header Upgrade $http_upgrade;
