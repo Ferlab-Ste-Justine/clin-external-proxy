@@ -53,6 +53,17 @@ server {
         proxy_set_header X-Real-IP $remote_addr;
         proxy_cache_bypass $http_upgrade;
     }
+
+    # Directives for clin-fhir-server
+    location ^~ /fhir {
+        proxy_pass http://clin-fhir-server:8080/fhir;
+        proxy_http_version 1.1;
+        proxy_set_header Connection keep-alive;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_cache_bypass $http_upgrade;
+    }
 }
 
 #SONG
